@@ -11,9 +11,7 @@ function Arrived() {
       </div>
       <div className="overflow-x-hidden px-4" id="carousel">
         <div className="container mx-auto"></div>
-        {/* <!-- <div className="overflow-hidden z-10"> --> */}
         <div className="flex -mx-4 flex-row relative">
-          {/* <!-- START: JUST ARRIVED ROW 1 --> */}
           <div className="px-4 relative card group">
             <div
               className="rounded-xl overflow-hidden card-shadow relative"
@@ -46,9 +44,7 @@ function Arrived() {
               {/* <!-- fake children --> */}
             </a>
           </div>
-          {/* <!-- END: JUST ARRIVED ROW 1 --> */}
 
-          {/* <!-- START: JUST ARRIVED ROW 2 --> */}
           <div className="px-4 relative card group">
             <div
               className="rounded-xl overflow-hidden card-shadow relative"
@@ -81,9 +77,7 @@ function Arrived() {
               {/* <!-- fake children --> */}
             </a>
           </div>
-          {/* <!-- END: JUST ARRIVED ROW 2 --> */}
 
-          {/* <!-- START: JUST ARRIVED ROW 3 --> */}
           <div className="px-4 relative card group">
             <div
               className="rounded-xl overflow-hidden card-shadow relative"
@@ -116,9 +110,7 @@ function Arrived() {
               {/* <!-- fake children --> */}
             </a>
           </div>
-          {/* <!-- END: JUST ARRIVED ROW 3 --> */}
 
-          {/* <!-- START: JUST ARRIVED ROW 4 --> */}
           <div className="px-4 relative card group">
             <div
               className="rounded-xl overflow-hidden card-shadow relative"
@@ -151,9 +143,7 @@ function Arrived() {
               {/* <!-- fake children --> */}
             </a>
           </div>
-          {/* <!-- END: JUST ARRIVED ROW 4 --> */}
 
-          {/* <!-- START: JUST ARRIVED ROW 5 --> */}
           <div className="px-4 relative card group">
             <div
               className="rounded-xl overflow-hidden card-shadow relative"
@@ -186,9 +176,7 @@ function Arrived() {
               {/* <!-- fake children --> */}
             </a>
           </div>
-          {/* <!-- END: JUST ARRIVED ROW 5 --> */}
 
-          {/* <!-- START: JUST ARRIVED ROW 3 --> */}
           <div className="px-4 relative card group">
             <div
               className="rounded-xl overflow-hidden card-shadow relative"
@@ -221,9 +209,7 @@ function Arrived() {
               {/* <!-- fake children --> */}
             </a>
           </div>
-          {/* <!-- END: JUST ARRIVED ROW 3 --> */}
 
-          {/* <!-- START: JUST ARRIVED ROW 1 --> */}
           <div className="px-4 relative card group">
             <div
               className="rounded-xl overflow-hidden card-shadow relative"
@@ -256,9 +242,7 @@ function Arrived() {
               {/* <!-- fake children --> */}
             </a>
           </div>
-          {/* <!-- END: JUST ARRIVED ROW 1 --> */}
         </div>
-        {/* <!-- </div> --> */}
       </div>
     </section>
   );
