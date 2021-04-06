@@ -99,3 +99,14 @@ registerRoute(
     ],
   })
 );
+
+registerRoute(({ url }) => url.origin.includes("qorebase.io"), new NetworkFirst
+  ({
+    cacheName: 'apiData',
+    plugins: [
+      new ExpirationPlugin({
+        maxAgeSeconds: 360,
+        maxEntries: 30
+      })
+    ]
+  }));
