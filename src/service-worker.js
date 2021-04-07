@@ -100,13 +100,24 @@ registerRoute(
   })
 );
 
-registerRoute(({ url }) => url.origin.includes("qorebase.io"), new NetworkFirst
-  ({
-    cacheName: 'apiData',
+registerRoute(
+  ({ url }) => url.origin.includes("qorebase.io"),
+  new NetworkFirst({
+    cacheName: "apiData",
     plugins: [
       new ExpirationPlugin({
         maxAgeSeconds: 360,
-        maxEntries: 30
-      })
-    ]
-  }));
+        maxEntries: 30,
+      }),
+    ],
+  })
+);
+
+self.addEventListener("push", function (event) {
+  event.waitUntil(
+    self.registration.showNotification("Luxspace", {
+      icon: "./icon-120.png",
+      body: event.data.text(),
+    })
+  );
+});
