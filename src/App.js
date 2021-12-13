@@ -11,11 +11,14 @@ import Footer from "./components/Footer";
 import Offline from "./components/Offline";
 import Splash from "./pages/Splash";
 import Profile from "./pages/Profile";
+import Details from "./pages/Details";
+import Cart from "./pages/Cart";
 
-function App() {
+function App({ cart }) {
   const [items, setItems] = React.useState([]);
   const [offlineStatus, setOfflineStatus] = React.useState(!navigator.onLine);
   const [isLoading, setIsLoading] = React.useState(true);
+
   function handleOfflineStatus() {
     setOfflineStatus(!navigator.onLine);
   }
@@ -64,7 +67,7 @@ function App() {
       ) : (
         <div>
           {offlineStatus && <Offline />}
-          <Header />
+          <Header mode="light" cart={cart} />
           <Hero />
           <Browse />
           <Arrived items={items} />
@@ -78,10 +81,44 @@ function App() {
 }
 
 export default function Routes() {
+  const cacheCart = window.localStorage.getItem("cart")
+
+  const [cart, setCart] = React.useState([]);
+
+  function handleAddToCart(item) {
+    const currentIndex = cart.length;
+    const newCart = [...cart, { id: currentIndex + 1, item }];
+    setCart(newCart);
+    window.localStorage.setItem('cart', JSON.stringify(newCart))
+  }
+
+  function handleRemoveItem(event, id) {
+    const revisedCart = cart.filter(function (item) {
+      return item.id !== id;
+    });
+    setCart(revisedCart)
+    window.localStorage.setItem('cart', JSON.stringify(revisedCart))
+  }
+
+  React.useEffect(function () {
+    console.info("useEffect for localstorage")
+    if (cacheCart !== null) {
+      setCart(JSON.parse(cacheCart))
+    }
+  }, [cacheCart])
+
   return (
     <Router>
-      <Route path="/" exact component={App} />
+      <Route path="/" exact >
+        <App cart={cart} />
+      </Route>
       <Route path="/profile" exact component={Profile} />
+      <Route path="/details/:id">
+        <Details handleAddToCart={handleAddToCart} cart={cart} />
+      </Route>
+      <Route path="/cart">
+        <Cart cart={cart} handleRemoveItem={handleRemoveItem} />
+      </Route>
     </Router>
   );
 }
